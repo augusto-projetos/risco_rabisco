@@ -10,7 +10,8 @@ session_start();
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Risco e Rabisco | Sua Papelaria Online</title>
         <link rel="website icon" type="png" href="img/rabisco.png">
-        <link rel="stylesheet" href="css/index.css">
+        <!-- O seu CSS original que você já tem -->
+        <link rel="stylesheet" href="css/index.css"> 
     </head>
     <body>
     
@@ -77,7 +78,11 @@ session_start();
     
         <!-- Rodapé Simples -->
         <footer>
-            <p>&copy; 2025 Risco e Rabisco - Projeto Senac</p>
+            <p>
+                <!-- Link "Sobre Nós" aqui -->
+                <a href="php/sobre.php" style="color: white; text-decoration: underline;">Sobre Nós</a>
+                &bull; &copy; 2025 Risco e Rabisco - Projeto Senac
+            </p>
         </footer>
     
     </body>
