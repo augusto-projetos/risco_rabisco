@@ -1,0 +1,201 @@
+/* --- Importação de Fontes (mesmas do style.css) --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Roboto:wght@400;500&display=swap');
+
+/* --- Reset Básico --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    /* Fundo gradiente sutil para não ser chapado */
+    background: linear-gradient(135deg, #f4f7f6 0%, #e8eaea 100%);
+    color: #333;
+    /* Centraliza o container na tela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* --- Container Principal (O Card) --- */
+.auth-container {
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+}
+
+/* --- Logo Acima do Card --- */
+.logo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: #333;
+    margin-bottom: 2rem;
+    transition: opacity 0.3s;
+}
+
+.logo-link:hover {
+    opacity: 0.7;
+}
+
+.logo-link img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.logo-link span {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+
+/* --- Formulário (O Card Branco) --- */
+.auth-form {
+    background: white;
+    padding: 2.5rem 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    text-align: left;
+    /* Animação de entrada */
+    animation: slideUp 0.5s ease-out;
+}
+
+.auth-form h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.auth-form p {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+/* --- Grupos de Formulário (Label + Input) --- */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Efeito sutil ao focar no campo */
+.form-group input:focus {
+    outline: none;
+    border-color: #8b0000; /* Cor da marca */
+    box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.1);
+}
+
+/* --- Botão Principal --- */
+.btn-auth {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #8b0000 0%, #c0392b 100%);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-auth:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
+}
+
+/* --- Link inferior (Ex: "Já tem conta?") --- */
+.auth-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.auth-link a {
+    color: #8b0000;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-link a:hover {
+    text-decoration: underline;
+}
+
+/* --- Mensagens de Feedback (Erro, Sucesso) --- */
+.mensagem-erro {
+    background-color: #ffebee;
+    border: 1px solid #c0392b;
+    color: #c0392b;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.mensagem-sucesso {
+    background-color: #e8f5e9;
+    border: 1px solid #2e7d32;
+    color: #2e7d32;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+
+/* --- Animação de Entrada --- */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Responsividade --- */
+@media (max-width: 480px) {
+    .auth-form {
+        padding: 2rem 1.5rem;
+    }
+
+    .logo-link span {
+        font-size: 1.5rem;
+    }
+}

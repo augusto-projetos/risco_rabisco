@@ -1,0 +1,176 @@
+/* Este é o CSS para a página de produtos.
+  Ele é carregado DEPOIS do loja.css, então ele
+  pode usar as variáveis de cor (--cor-principal) que o loja.css definiu.
+*/
+
+/* Título da Página (Ex: "Nosso Catálogo de Produtos") */
+.titulo-pagina {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--cor-principal);
+    margin-bottom: 2rem;
+}
+
+/* O Container Grid que segura todos os cards */
+.container-produtos {
+    display: grid;
+    /* Este é o grid responsivo:
+      - Tente encaixar colunas de 280px.
+      - Se não couber, quebre a linha.
+      - 1fr = Ocupa o espaço que sobrar.
+    */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem; /* Espaço entre os cards */
+    padding: 0 1rem; /* Não deixa os cards colarem na borda */
+}
+
+/* O Card Individual de cada Produto */
+.card-produto {
+    background-color: #ffffff;
+    border-radius: var(--raio-borda);
+    box-shadow: var(--sombra);
+    overflow: hidden; /* Garante que a imagem não vaze */
+    
+    /* Mágica do Flex: Faz o card crescer e empurra o rodapé (botões) para baixo */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-produto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Área da Imagem */
+.card-produto-imagem {
+    /* Força a imagem a ser quadrada */
+    aspect-ratio: 1 / 1; 
+    width: 100%;
+}
+
+.card-produto-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+}
+
+/* Área de Informação (Nome, Descrição, Preço) */
+.card-produto-info {
+    padding: 1rem;
+    /* Cresce para empurrar os botões para baixo */
+    flex-grow: 1; 
+}
+
+.card-produto-info h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.card-produto-info .descricao {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 1rem;
+    /* Limita a descrição para 2 linhas */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-produto-info .preco {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--cor-principal);
+}
+
+/* Área das Ações (Botões de Favorito e Orçamento) */
+.card-produto-acoes {
+    padding: 1rem;
+    border-top: 1px solid var(--cor-borda);
+    display: grid;
+    gap: 0.5rem; /* Espaço entre os dois formulários */
+}
+
+/* Formulário do Orçamento (Input + Botão) */
+.form-orcamento {
+    display: flex; /* Alinha o input e o botão lado a lado */
+}
+
+.input-quantidade {
+    width: 60px;
+    padding: 0.75rem 0.5rem;
+    text-align: center;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda) 0 0 var(--raio-borda); /* Arredonda só a esquerda */
+    font-size: 1rem;
+    font-weight: 600;
+    
+    /* Remove as setas feias do input number */
+    -moz-appearance: textfield;
+    appearance: none;
+}
+.input-quantidade::-webkit-outer-spin-button,
+.input-quantidade::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Estilo Base dos Botões */
+.btn-orcamento,
+.btn-favorito {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: var(--raio-borda);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; /* Espaço entre ícone e texto */
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Botão de Orçamento (Principal) */
+.btn-orcamento {
+    background-color: var(--cor-principal);
+    color: white;
+    /* "Cola" no input, arredondando só a direita */
+    border-radius: 0 var(--raio-borda) var(--raio-borda) 0;
+    flex-grow: 1; /* Ocupa o espaço restante */
+}
+
+.btn-orcamento:hover {
+    background-color: #6a0000; /* Tom mais escuro */
+}
+
+/* Botão de Favorito (Secundário) */
+.btn-favorito {
+    background-color: transparent;
+    color: #555;
+    border: 1px solid var(--cor-borda);
+}
+
+.btn-favorito:hover {
+    background-color: #f5f5f5;
+}
+
+/* Estilo do Botão Favorito quando DESABILITADO */
+.btn-favorito:disabled {
+    background-color: #f0f0f0;
+    color: var(--cor-principal);
+    border-color: transparent;
+    cursor: not-allowed;
+}
+
+.btn-favorito:disabled .fa-heart {
+    /* O ícone fica sólido (vermelho) */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}

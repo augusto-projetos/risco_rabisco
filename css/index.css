@@ -1,0 +1,248 @@
+/* --- Importação de Fontes Modernas (Google Fonts) --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Roboto:wght@400;500&display=swap');
+ 
+/* --- Reset Básico --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7f6; /* Um cinza bem claro, quase branco */
+    color: #333;
+    line-height: 1.6;
+}
+ 
+h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+}
+ 
+/* --- HERO SECTION (O Banner Principal) --- */
+.hero {
+    height: 90vh; /* Ocupa quase a tela toda */
+    background: linear-gradient(135deg, #8b0000 0%, #c0392b 100%); /* Gradiente Vermelho Elegante */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    overflow: hidden;
+}
+ 
+/* Efeito de fundo sutil (opcional, bolinhas decorativas) */
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    top: 0;
+    left: 0;
+}
+ 
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    max-width: 800px;
+    animation: fadeInUp 1s ease-out; /* Animação de entrada */
+}
+ 
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+ 
+.hero-content h1 span {
+    color: #ffcc00; /* Amarelo para destacar o nome */
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+}
+ 
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+}
+ 
+/* --- BOTÕES (CTA) --- */
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+ 
+.btn {
+    padding: 15px 35px;
+    border-radius: 50px; /* Botão redondo estilo "pílula" */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+ 
+.btn-primary {
+    background-color: #ffcc00; /* Amarelo chamativo */
+    color: #8b0000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+ 
+.btn-primary:hover {
+    transform: translateY(-3px); /* Sobe um pouquinho */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    background-color: #ffdb4d;
+}
+ 
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+}
+ 
+.btn-outline:hover {
+    background-color: white;
+    color: #8b0000;
+}
+ 
+/* --- SEÇÃO DE VANTAGENS (FEATURES) --- */
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 4rem 5%;
+    background-color: white;
+    margin-top: -50px; /* Sobe para cima do banner */
+    position: relative;
+    z-index: 2;
+}
+ 
+.feature-card {
+    background: white;
+    flex: 1 1 300px; /* Responsivo */
+    max-width: 350px;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    text-align: center;
+    border-bottom: 5px solid #8b0000;
+    transition: transform 0.3s;
+}
+ 
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+ 
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+ 
+/* --- TEASER DE PRODUTOS --- */
+.teaser-produtos {
+    padding: 4rem 5%;
+    text-align: center;
+    background-color: #f4f7f6;
+}
+ 
+.teaser-produtos h2 {
+    font-size: 2.5rem;
+    color: #8b0000;
+    margin-bottom: 3rem;
+}
+ 
+.grid-produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-bottom: 2rem;
+}
+ 
+/* Cartão do Produto com Efeito Blur */
+.card-produto-blur {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+    position: relative;
+    padding-bottom: 15px;
+}
+ 
+.card-produto-blur:hover {
+    transform: scale(1.03);
+}
+ 
+.card-produto-blur img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Garante que a imagem não estique */
+    border-bottom: 1px solid #eee;
+}
+ 
+.card-produto-blur h4 {
+    margin: 15px 0 5px;
+    color: #333;
+}
+ 
+/* O SEGREDO: Preço Borrado para gerar curiosidade */
+.blur-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: transparent; /* Texto transparente */
+    text-shadow: 0 0 8px rgba(0,0,0,0.5); /* Sombra que cria o borrão */
+    user-select: none; /* Impede seleção */
+    cursor: help;
+}
+ 
+.aviso-cadastro {
+    font-style: italic;
+    color: #666;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+ 
+/* --- RODAPÉ --- */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: auto;
+}
+ 
+/* --- ANIMAÇÕES --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+ 
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+    
+    .features {
+        margin-top: 0;
+        padding: 2rem 5%;
+    }
+}
