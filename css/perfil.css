@@ -1,0 +1,149 @@
+/*
+ * CSS específico para a página de Perfil (perfil.php)
+ */
+
+/* 1. Título da Página (Reutilizado)
+--------------------------------------------------- */
+.titulo-pagina {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--cor-texto-principal);
+    margin-bottom: 1.5rem;
+}
+
+/* 2. Container Principal (Layout de 2 Colunas)
+--------------------------------------------------- */
+.perfil-container {
+    display: grid;
+    /* Duas colunas de tamanho igual */
+    grid-template-columns: 1fr 1fr; 
+    gap: 1.5rem;
+    align-items: flex-start; /* Alinha os cards pelo topo */
+}
+
+/* 3. Card de Formulário (Estilo Individual)
+--------------------------------------------------- */
+.perfil-card {
+    background-color: var(--cor-branca);
+    border-radius: 8px;
+    box-shadow: var(--sombra-padrao);
+    padding: 2rem;
+}
+
+.perfil-card h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--cor-texto-principal);
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--cor-cinza-borda);
+    padding-bottom: 0.75rem;
+}
+
+/* 4. Estilos do Formulário (Inputs, Labels)
+--------------------------------------------------- */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    color: var(--cor-texto-secundario);
+    margin-bottom: 0.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    border: 1px solid var(--cor-cinza-borda);
+    border-radius: 6px;
+    background-color: var(--cor-branca);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--cor-principal);
+    box-shadow: 0 0 0 2px rgba(139, 0, 0, 0.1);
+}
+
+/* Estilo para campos desabilitados (email, data) */
+.form-group input:disabled {
+    background-color: var(--cor-cinza-fundo);
+    color: #888;
+    cursor: not-allowed;
+}
+
+/* 5. Botão Principal (Reutilizado)
+--------------------------------------------------- */
+.btn-primario {
+    display: inline-block;
+    background-color: var(--cor-principal);
+    color: var(--cor-branca);
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.btn-primario:hover {
+    background-color: var(--cor-principal-hover);
+}
+
+/* 6. Mensagens de Feedback
+--------------------------------------------------- */
+
+/* Erro dentro do Card */
+.mensagem-erro {
+    background-color: var(--cor-vermelho-sair-fundo);
+    color: var(--cor-vermelho-sair);
+    border: 1px solid var(--cor-vermelho-sair);
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Sucesso (Toast Flutuante) */
+.mensagem-sucesso-flutuante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2000;
+    
+    background-color: #2e7d32; /* Verde escuro */
+    color: var(--cor-branca);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 700;
+    font-size: 1rem;
+    
+    /* Animação de fade-out */
+    transition: opacity 0.5s ease-out;
+}
+
+/* 7. Responsividade (Celular)
+--------------------------------------------------- */
+@media (max-width: 768px) {
+    /* Empilha os dois cards */
+    .perfil-container {
+        grid-template-columns: 1fr; /* Coluna única */
+    }
+
+    .perfil-card {
+        padding: 1.5rem;
+    }
+
+    .perfil-card h2 {
+        font-size: 1.3rem;
+    }
+}
